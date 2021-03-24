@@ -1,17 +1,18 @@
 # Tutorial 6) Localization
 
 ## Prerequisites
-- https://github.com/tue-robotics/ed.git
-- https://github.com/tue-robotics/ed_gui_server.git
-- https://github.com/tue-robotics/ed_rviz_plugins.git
-- https://github.com/tue-robotics/ed_localization.git
-- 2D Range Finder (http://wiki.ros.org/Sensors) on the robot which scans in a plane parallel to the floor
+
+- <https://github.com/tue-robotics/ed.git>
+- <https://github.com/tue-robotics/ed_gui_server.git>
+- <https://github.com/tue-robotics/ed_rviz_plugins.git>
+- <https://github.com/tue-robotics/ed_localization.git>
+- 2D Range Finder (<http://wiki.ros.org/Sensors>) on the robot which scans in a plane parallel to the floor
 - [TF tree](wiki.ros.org/tf) containing transforms from the robots' odometry frame to the 2D Range Finder frame
 - Knowledge about TF and robot localization. Have a look at the [AMCL wiki page](http://wiki.ros.org/amcl) if not.
 
 ## Tutorial
 
-So far we've created a world model using heightmaps, primitives and other models, and we were able to visualize it. However, a world model on its own is not very useful. Let's start using it to make a robot behave autonomously! The package [ed_localization](https://github.com/tue-robotics/ed_localization) allows your robot to localize itself in the ED world model, using the robot's odometry and 2D Range Finder. 
+So far we've created a world model using heightmaps, primitives and other models, and we were able to visualize it. However, a world model on its own is not very useful. Let's start using it to make a robot behave autonomously! The package [ed_localization](https://github.com/tue-robotics/ed_localization) allows your robot to localize itself in the ED world model, using the robot's odometry and 2D Range Finder.
 
 The ED localization is largely based on ROS' [AMCL-module](http://wiki.ros.org/amcl), which in turn uses several algorithms from the book 'Probabilistic Robotics' by Thrun, Burgard, and Fox. It is a particle filter implementation which uses the robot's odometry for the *prediction* step, and the 2D Range Finder scan for the *update*. The main difference with AMCL is that ED localization does not operate on an occupancy grid given by the user, but on the 3D world model contained in ED. And by using a technique based on GPU rasterization methods instead of ray casting the sensor data for each particle, the ED localization module is quite a bit more efficient than AMCL! But let's not get too technical. How do we use it?!
 
@@ -19,14 +20,14 @@ As stated above, we assume that you have a 2D Range Finder (we will sometimes us
 
 The ED localization module is in fact just an ED plugin. So, as you may have guessed, we need to specify it in our ED configuration file. Add the localization plugin and it's parameters to the list of plugins in your configuration file. It will then look like this:
 
-<pre>
+```yaml
 world:
 - type: robot-lab
   pose: { x: 0, y: 0, z: 0 }
 
 plugins:
   - name: gui_server
-    lib: libed_gui_server_plugin.so     
+    lib: libed_gui_server_plugin.so
   - name: localization
     lib: libed_localization_plugin.so
     parameters:
@@ -59,7 +60,7 @@ plugins:
         alpha3: 0.2    # trans -> trans          # |   probabilistic odom model. See
         alpha4: 0.2    # rot -> rot              # |   'Probabilistic Robotics' for more info
         alpha5: 0.2    # trans -> strafe         # /
-</pre>
+```
 
 Woah, that's a lot of parameters! Fortunately, it will probably work quite well with the parameters above. The most important thing is to fill in the values represented as [...], i.e., the initial pose topic, laser topic, odometry tf frame, and base tf frame. If you want to know more about the model parameters, have a look at the [AMCL wiki page](http://wiki.ros.org/amcl).
 
@@ -67,9 +68,9 @@ Now run ED with this configuration file, and visualize the whole thing in RViz. 
 
 If the above doesn't work, make sure that:
 
-* The Range Finder is indeed broadcasting scan messages (e.g., use 'rostopic echo' to find out)
-* The laser topic is correctly specified in the configuration file
-* The frame_id specified in the Range Finder messages are correct (i.e., there is a valid transformation from the odometry frame to this frame)
-* The TF frames in the configuration file are correct
+- The Range Finder is indeed broadcasting scan messages (e.g., use 'rostopic echo' to find out)
+- The laser topic is correctly specified in the configuration file
+- The frame_id specified in the Range Finder messages are correct (i.e., there is a valid transformation from the odometry frame to this frame)
+- The TF frames in the configuration file are correct
 
 ![localization](img/localization.png)

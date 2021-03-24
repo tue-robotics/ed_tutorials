@@ -2,11 +2,11 @@
 
 ## Prerequisites
 
-- https://github.com/tue-robotics/ed.git
-- https://github.com/tue-robotics/ed_gui_server.git
-- https://github.com/tue-robotics/ed_rviz_plugins.git
-- https://github.com/tue-robotics/ed_navigation.git
-- https://github.com/tue-robotics/ed_localization.git
+- <https://github.com/tue-robotics/ed.git>
+- <https://github.com/tue-robotics/ed_gui_server.git>
+- <https://github.com/tue-robotics/ed_rviz_plugins.git>
+- <https://github.com/tue-robotics/ed_navigation.git>
+- <https://github.com/tue-robotics/ed_localization.git>
 
 - Up and running move base configured for a static map on topic /ed/navigation/map
 
@@ -16,7 +16,7 @@ ED can be used in combination with ROS' Move Base or another base navigation fra
 
 **Add** the following to the **list of plugins** in your configuration file:
 
-<pre>
+```yaml
 - name: navigation
   lib: libed_navigation_plugin.so
   parameters:
@@ -27,7 +27,7 @@ ED can be used in combination with ROS' Move Base or another base navigation fra
       max_z: 1.8             # Projected onto the occupancy grid
       default_offset: 0.7    # <-- not used for ROS' Move Base, but needs
                              # to be specified
-</pre>
+```
 
 Running ed with this configuration results in the following occupancy grid if
 we enable the occupancy grid viewer in RVIZ.
@@ -39,7 +39,7 @@ as an input. [This tutorial](http://wiki.ros.org/costmap_2d/Tutorials/Configurin
 
 An example global costmap configuration:
 
-<pre>
+```yaml
 plugins:
     # Obstacles
     - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
@@ -58,18 +58,17 @@ configuration_space:
     dilation_cell_value: 253
     dilation_radius: 0.37 # 2cm margin
     inflation_radius: 0.6
-</pre>
+```
 
 ![global](img/global.png)
 
 An example local costmap configuration:
 
-<pre>
+```yaml
 plugins:
     - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
     - {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
     - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
-
 
 # LAYER CONFIGURATION
 
@@ -87,6 +86,6 @@ configuration_space:
     dilation_radius: 0.35 # inscribed radius
     inflation_radius: 1.0 # optimization
     cost_scaling_factor: 5.0
-</pre>
+```
 
 ![global](img/local.png)
