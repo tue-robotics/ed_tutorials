@@ -2,17 +2,17 @@
 
 ## Prerequisites
 
-- https://github.com/tue-robotics/ed.git
-- https://github.com/tue-robotics/ed_gui_server.git
-- https://github.com/tue-robotics/ed_rviz_plugins.git
-- https://github.com/tue-robotics/ed_localization.git
-- https://github.com/tue-robotics/ed_sensor_integration.git
+- <https://github.com/tue-robotics/ed.git>
+- <https://github.com/tue-robotics/ed_gui_server.git>
+- <https://github.com/tue-robotics/ed_rviz_plugins.git>
+- <https://github.com/tue-robotics/ed_localization.git>
+- <https://github.com/tue-robotics/ed_sensor_integration.git>
 
 ## Tutorial
 
 If we want to track obstacles in the scene, we have to integrate the sensor
 data of the robot into the world model. This can be done with use of the
-sensor_integration plugins. 
+sensor_integration plugins.
 
 The first sensor integration plugin that will be used is the laserscan plugin.
 This plugin integrates laser data readings into the world model
@@ -22,6 +22,7 @@ clusters will be created and these clusters will be tracked over time. This
 allows us to follow for example a person.
 
 In this tutorial, the config will be updated with two different plugins:
+
 - Laser integration plugin (responsible for adding and updating newly detected
   clusters)
 - Entity clearer plugin (responsible for removing clusters if they are not
@@ -30,7 +31,7 @@ In this tutorial, the config will be updated with two different plugins:
 The following configuration should be added to the world_model configuration
 file:
 
-<pre>
+```yaml
 - name: laser_integration
   lib: libed_laser_plugin.so
   frequency: 40
@@ -47,7 +48,7 @@ file:
   enabled: 1
   parameters:
       entity_timeout: 1.0
-</pre>
+```
 
 As can be seen, the plugin will add entities to the scene and track these
 entities over time. In this particular example, it is a block that is not

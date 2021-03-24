@@ -2,13 +2,13 @@
 
 ## Prerequisites
 
-- https://github.com/tue-robotics/ed.git
-- https://github.com/tue-robotics/ed_gui_server.git
-- https://github.com/tue-robotics/ed_rviz_plugins.git
-- https://github.com/tue-robotics/ed_localization.git
-- https://github.com/tue-robotics/ed_sensor_integration.git
+- <https://github.com/tue-robotics/ed.git>
+- <https://github.com/tue-robotics/ed_gui_server.git>
+- <https://github.com/tue-robotics/ed_rviz_plugins.git>
+- <https://github.com/tue-robotics/ed_localization.git>
+- <https://github.com/tue-robotics/ed_sensor_integration.git>
 
-- https://github.com/tue-robotics/rgbd.git sensor stream
+- <https://github.com/tue-robotics/rgbd.git> sensor stream
 
 ## Tutorial
 
@@ -17,12 +17,14 @@ Segmentation, association and updating entities based on RGBD measurements will 
 
 First we need to update the model and specify an area that can be used for segmentation. We add a new model to the my-model-dir that is called cabinet:
 
-    mkdir my-model-dir && cd my-model-dir
-    mkdir cabinet && vim cabinet/model.yaml
-    
+```bash
+mkdir my-model-dir && cd my-model-dir
+mkdir cabinet && vim cabinet/model.yaml
+```
+
 Create the cabinet model
-    
-<pre>
+
+```yaml
 shape:
   compound:
     - box:
@@ -60,14 +62,16 @@ areas: # These areas can be used by the kinect plugin for segmentation
       - box:
             min: { x: -0.17, y: -0.37, z: 0.845 }
             max: { x:  0.17, y:  0.37, z: 1.2 }
-</pre>
+```
 
 Update the robot-lab model:
 
-    mkdir robot-lab
-    vim robot-lab/model.yaml
-    
-<pre>
+```bash
+mkdir robot-lab
+vim robot-lab/model.yaml
+```
+
+```yaml
   composition:
     - type: "robot-lab/walls"
       id: "walls"
@@ -84,13 +88,13 @@ Update the robot-lab model:
           X: 0
           Y: 0
           Z: 0
-</pre>
+```
 
 Copy the robot-lab heightmap model to robot-lab/walls.
 
 Now we are going to create the config for ed and make sure that we load all required plugins:
 
-<pre>
+```yaml
 world:
 - type: robot-lab
   pose: { x: 0, y: 0, z: 0 }
@@ -135,12 +139,14 @@ plugins:
   enabled: 1
   parameters:
       topic: /amigo/top_kinect/rgbd
-</pre>
+```
 
 Now that the config is set-up, the world model can be started:
 
-    rosrun ed ed my-ed-config.yaml
-    
+```bash
+rosrun ed ed my-ed-config.yaml
+```
+
 ![area](img/area.png)
 
 This looks quiet the same as previous tutorials but the cabinet entity present in the scene has now a specified area that can be used by the kinect plugin to do segmentation.
@@ -151,10 +157,11 @@ Now we move the robot towards the cabinet and open the RGBD sensor view:
 
 With use of the exposed ROS services by the kinect integration plugin, we can segment the cans that are standing 'on_top_of' the cabinet:
 
-    rosservice call /ed/kinect/update "area_description: 'on_top_of robot-lab/cabinet'"
-    
+```bash
+rosservice call /ed/kinect/update "area_description: 'on_top_of robot-lab/cabinet'"
+```
+
 ![segment_command](img/segment_command.png)
 ![segment_result](img/segment_result.png)
 
 Now we have updated the world model with use of the kinect data. See the next tutorial how to use this data.
-    
