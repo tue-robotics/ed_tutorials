@@ -8,15 +8,9 @@
 
 ## Tutorial
 
-ED strongly relies on plugins to integrate sensor data, estimate object positions, recognize objects, etc. Before you can start ED, you have to specify the location of these plugins using the environment variable ED_PLUGIN_PATH. For example, for a ROS Catkin workspace, the variable should be set to something like:
+ED strongly relies on plugins to integrate sensor data, estimate object positions, recognize objects, etc. The plugins are discovered by the exports from the `package.xml` files.
 
-```bash
-export ED_PLUGIN_PATH=<your_catkin_workspace>/devel/lib
-```
-
-You can provide multiple paths by separating them using ':'.
-
-You can then start ED by running:
+You can start ED by running:
 
 ```bash
 rosrun ed ed
