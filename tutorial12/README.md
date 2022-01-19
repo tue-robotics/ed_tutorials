@@ -12,7 +12,7 @@ Some components in your ROS network required transformation published over TF. T
 
 ```yaml
 - name: tf_publisher
-  lib: libed_tf_publisher_plugin.so
+  type: ed/tf_publisher
   parameters:
     root_frame_id: /map
     exclude: optional_ids_to_exclude

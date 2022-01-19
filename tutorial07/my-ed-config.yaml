@@ -4,9 +4,9 @@ world:
 
 plugins:
 - name: gui_server
-  lib: libed_gui_server_plugin.so
+  type: ed_gui_server/gui_server
 - name: localization
-  lib: libed_localization_plugin.so
+  type: ed_localization/localization
   parameters:
     robot_name: amigo
     initial_pose_topic: /amigo/initialpose
@@ -46,7 +46,7 @@ plugins:
         alpha4: 0.5    # rot -> rot
         alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
 - name: navigation
-  lib: libed_navigation_plugin.so
+  type: ed_navigation/navigation
   parameters:
     occupancy_grid_publisher:
         resolution: 0.05

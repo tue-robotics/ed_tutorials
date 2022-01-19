@@ -39,7 +39,7 @@ world:
 
 plugins:
   - name: gui_server
-    lib: libed_gui_server_plugin.so
+    type: ed_gui_server/gui_server
 ```
 
 Take some time to try to understand what the config file states. A world is specified consisting of two objects - we'll call these entities. Both entities have an ID, a position in the world, and a shape. The shape is described as being a box with a certain size. Furthermore, we specify that we want to run the gui_server plugin. This will allow us to visualize the world in RViz.

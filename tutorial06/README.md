@@ -27,9 +27,9 @@ world:
 
 plugins:
   - name: gui_server
-    lib: libed_gui_server_plugin.so
+    type: ed_gui_server/gui_server
   - name: localization
-    lib: libed_localization_plugin.so
+    type: ed_localization/localization
     parameters:
       robot_name: robot    # the robot will also be in the world model. This is the
                            # id the robot entity will get in ED

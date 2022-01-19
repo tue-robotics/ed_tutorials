@@ -4,9 +4,9 @@ world:
 
 plugins:
 - name: gui_server
-  lib: libed_gui_server_plugin.so
+  type: ed_gui_server/gui_server
 - name: localization
-  lib: libed_localization_plugin.so
+  type: ed_localization/localization
   parameters:
     robot_name: amigo
     initial_pose_topic: /amigo/initialpose
@@ -47,13 +47,13 @@ plugins:
         alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
 
 - name: entity_clearer
-  lib: libed_clearer_plugin.so
+  type: ed_sensor_integration/clearer
   enabled: 1
   parameters:
       entity_timeout: 1.0
 
 - name: laser_integration
-  lib: libed_laser_plugin.so
+  type: ed_sensor_integration/laser
   frequency: 40
   parameters:
       laser_topic: /amigo/torso_laser/scan

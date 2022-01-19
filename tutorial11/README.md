@@ -13,7 +13,7 @@ We need to add the perception plugin to our world model configuration:
 
 ```yaml
 - name: perception
-  lib: libed_perception_plugin.so
+  type: ed_perception/image_recognition
 ```
 
 Now we launch the world model again and segment some objects (tutorial 09). This will result in something like this:

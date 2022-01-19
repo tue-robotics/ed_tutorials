@@ -101,9 +101,9 @@ world:
 
 plugins:
 - name: gui_server
-  lib: libed_gui_server_plugin.so
+  type: ed_gui_server/gui_server
 - name: localization
-  lib: libed_localization_plugin.so
+  type: ed_localization/localization
   parameters:
     robot_name: amigo
     initial_pose_topic: /amigo/initialpose
@@ -144,7 +144,7 @@ plugins:
         alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
 
 - name: rgbd_integration # Kinect integration
-  lib: libed_kinect_plugin.so
+  type: ed_sensor_integration/rgbd
   enabled: 1
   parameters:
       topic: /amigo/top_kinect/rgbd

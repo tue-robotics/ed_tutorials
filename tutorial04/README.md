@@ -30,7 +30,7 @@ world:
 
 plugins:
   - name: gui_server
-    lib: libed_gui_server_plugin.so
+    type: ed_gui_server/gui_server
 ```
 
 Run ED and visualize the world model. You should see two tables and some walls, as specified by your heightmap.
