@@ -34,7 +34,16 @@ plugins:
       robot_name: robot    # the robot will also be in the world model. This is the
                            # id the robot entity will get in ED
       initial_pose_topic: [INITIAL_POSE_TOPIC]
-      num_particles: 500   # maximum number of particles to use
+      particle_filter:
+        min_particles: 100
+        max_particles: 750
+        kld_err: 0.02
+        kld_z: 0.98
+        recovery_alpha_slow: 0 #0.001
+        recovery_alpha_fast: 0 #0.1
+        cell_size_x: 0.5
+        cell_size_y: 0.5
+        cell_size_theta: 0.1745
       initial_pose:        # where does the robot start (in map frame)?
         x: 0
         y: 0

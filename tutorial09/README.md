@@ -107,7 +107,16 @@ plugins:
   parameters:
     robot_name: amigo
     initial_pose_topic: /amigo/initialpose
-    num_particles: 500
+    particle_filter:
+        min_particles: 100
+        max_particles: 750
+        kld_err: 0.02
+        kld_z: 0.98
+        recovery_alpha_slow: 0 #0.001
+        recovery_alpha_fast: 0 #0.1
+        cell_size_x: 0.5
+        cell_size_y: 0.5
+        cell_size_theta: 0.1745
     initial_pose:
         x: 0.586 #$(env ROBOT_INIT_X)
         y: 4.259 #$(env ROBOT_INIT_Y)
