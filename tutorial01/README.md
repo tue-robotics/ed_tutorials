@@ -8,15 +8,13 @@
 
 ## Tutorial
 
-ED strongly relies on plugins to integrate sensor data, estimate object positions, recognize objects, etc. Before you can start ED, you have to specify the location of these plugins using the environment variable ED_PLUGIN_PATH. For example, for a ROS Catkin workspace, the variable should be set to something like:
+ED strongly relies on plugins to integrate sensor data, estimate object positions, recognize objects, etc. The plugins are discovered by the exports from the `package.xml` files. To get an overview of all defined plugins, use the `list_plugin` tool:
 
 ```bash
-export ED_PLUGIN_PATH=<your_catkin_workspace>/devel/lib
+rosrun ed list_plugins
 ```
 
-You can provide multiple paths by separating them using ':'.
-
-You can then start ED by running:
+You can start ED by running:
 
 ```bash
 rosrun ed ed
@@ -45,7 +43,7 @@ world:
 
 plugins:
   - name: gui_server
-    lib: libed_gui_server_plugin.so
+    type: ed_gui_server/gui_server
 ```
 
 Take some time to try to understand what the config file states. A world is specified consisting of two objects - we'll call these entities. Both entities have an ID, a position in the world, and a shape. The shape is described as being a box with a certain size. Furthermore, we specify that we want to run the gui_server plugin. This will allow us to visualize the world in RViz.

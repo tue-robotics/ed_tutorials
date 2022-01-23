@@ -66,7 +66,7 @@ world:
 
 plugins:
   - name: gui_server
-    lib: libed_gui_server_plugin.so
+    type: ed_gui_server/gui_server
 ```
 
 **Make sure the ED_MODEL_PATH environment variable is set!**

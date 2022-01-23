@@ -101,13 +101,22 @@ world:
 
 plugins:
 - name: gui_server
-  lib: libed_gui_server_plugin.so
+  type: ed_gui_server/gui_server
 - name: localization
-  lib: libed_localization_plugin.so
+  type: ed_localization/localization
   parameters:
     robot_name: amigo
     initial_pose_topic: /amigo/initialpose
-    num_particles: 500
+    particle_filter:
+        min_particles: 100
+        max_particles: 750
+        kld_err: 0.02
+        kld_z: 0.98
+        recovery_alpha_slow: 0 #0.001
+        recovery_alpha_fast: 0 #0.1
+        cell_size_x: 0.5
+        cell_size_y: 0.5
+        cell_size_theta: 0.1745
     initial_pose:
         x: 0.586 #$(env ROBOT_INIT_X)
         y: 4.259 #$(env ROBOT_INIT_Y)
@@ -135,7 +144,7 @@ plugins:
         alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
 
 - name: rgbd_integration # Kinect integration
-  lib: libed_kinect_plugin.so
+  type: ed_sensor_integration/rgbd
   enabled: 1
   parameters:
       topic: /amigo/top_kinect/rgbd

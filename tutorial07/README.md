@@ -18,7 +18,7 @@ ED can be used in combination with ROS' Move Base or another base navigation fra
 
 ```yaml
 - name: navigation
-  lib: libed_navigation_plugin.so
+  type: ed_navigation/navigation
   parameters:
     occupancy_grid_publisher:
       resolution: 0.05       # Grid cell size in meters

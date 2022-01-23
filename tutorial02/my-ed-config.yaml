@@ -1,12 +1,12 @@
 world:
-- id: walls
-  shape:
-    heightmap:
+  - id: walls
+    shape:
+      heightmap:
         image: $(file my-walls.pgm)
         height: 2
         resolution: 0.025
         pose: { x: -10.0, y: -10.0, z: 0 }
 
 plugins:
-    - name: gui_server
-      lib: libed_gui_server_plugin.so
+  - name: gui_server
+    type: ed_gui_server/gui_server

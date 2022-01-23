@@ -33,7 +33,7 @@ file:
 
 ```yaml
 - name: laser_integration
-  lib: libed_laser_plugin.so
+  type: ed_sensor_integration/laser
   frequency: 40
   parameters:
       laser_topic: /amigo/torso_laser/scan
