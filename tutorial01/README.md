@@ -8,7 +8,11 @@
 
 ## Tutorial
 
-ED strongly relies on plugins to integrate sensor data, estimate object positions, recognize objects, etc. The plugins are discovered by the exports from the `package.xml` files.
+ED strongly relies on plugins to integrate sensor data, estimate object positions, recognize objects, etc. The plugins are discovered by the exports from the `package.xml` files. To get an overview of all defined plugins, use the `list_plugin` tool:
+
+```bash
+rosrun ed list_plugins
+```
 
 You can start ED by running:
 
