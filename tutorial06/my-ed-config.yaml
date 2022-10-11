@@ -10,6 +10,9 @@ plugins:
     parameters:
         robot_name: amigo
         initial_pose_topic: /amigo/initialpose
+        resample_interval: 2
+        update_min_d: 0.05
+        update_min_a: 0.05
         particle_filter:
             min_particles: 100
             max_particles: 750
