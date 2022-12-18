@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="robot-lab">
+    <include>
+      <name>table1</name>
+      <uri>model://table</uri>
+      <pose>2 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>table2</name>
+      <uri>model://table</uri>
+      <pose>3 2 0 0 0 1.54</pose>
+    </include>
+    <model name="walls">
+      <static>true</static>
+      <link name="1_link">
+        <collision name="1_col">
+          <geometry>
+            <mesh>
+              <uri>model://walls/../../../../../system/src/ed_tutorials/tutorial12/my-model-dir/robot-lab/my-walls.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="1_vis">
+          <geometry>
+            <mesh>
+              <uri>model://walls/../../../../../system/src/ed_tutorials/tutorial12/my-model-dir/robot-lab/my-walls.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>0.5 0.1 -0.9</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+    <physics type="ode">
+      <real_time_update_rate>333.0</real_time_update_rate>
+      <max_step_size>0.003</max_step_size>
+      <ode>
+        <solver type="quick">
+          <iters>100</iters>
+        </solver>
+        <constraints>
+          <cfm>0.0001</cfm>
+        </constraints>
+      </ode>
+    </physics>
+  </world>
+</sdf>

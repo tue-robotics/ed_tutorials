@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="robot-lab">
+    <static>true</static>
+    <link name="1_link">
+      <collision name="1_col">
+        <geometry>
+          <mesh>
+            <uri>model://robot-lab/shape/heightmap.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="1_vis">
+        <geometry>
+          <mesh>
+            <uri>model://robot-lab/shape/heightmap.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+    </link>
+  </model>
+</sdf>
