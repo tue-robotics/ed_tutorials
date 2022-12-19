@@ -12,7 +12,7 @@ We already know that we can visualize the world model by adding a certain plugin
 rosrun ed ed_view_model --model table
 ```
 
-(Again, remember that you should have set ED_MODEL_PATH). You should now see the table model visualized in a separate window. Now try:
+(Again, remember that you should have set `ED_MODEL_PATH`). You should now see the table model visualized in a separate window. Now try:
 
 ```bash
 rosrun ed ed_view_model --model robot-lab
