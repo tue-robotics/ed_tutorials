@@ -17,14 +17,14 @@
         <collision name="1_col">
           <geometry>
             <mesh>
-              <uri>model://walls/../../../../../system/src/ed_tutorials/tutorial04/my-model-dir/robot-lab/my-walls.stl</uri>
+              <uri>model://robot-lab/my-walls.stl</uri>
             </mesh>
           </geometry>
         </collision>
         <visual name="1_vis">
           <geometry>
             <mesh>
-              <uri>model://walls/../../../../../system/src/ed_tutorials/tutorial04/my-model-dir/robot-lab/my-walls.stl</uri>
+              <uri>model://robot-lab/my-walls.stl</uri>
             </mesh>
           </geometry>
         </visual>
