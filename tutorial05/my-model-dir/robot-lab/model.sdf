@@ -32,6 +32,27 @@
       </link>
       <pose>0 0 0 0 0 0</pose>
     </model>
+    <model name="floor">
+      <link name="1_link">
+        <collision name="1_col">
+          <geometry>
+            <box>
+              <size>200 200 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="1_vis">
+          <geometry>
+            <box>
+              <size>200 200 0.02</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 -0.01 0 0 0</pose>
+      </link>
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
