@@ -1,23 +1,73 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="robot-lab">
+  <world name="robot-lab">
+    <light name="sun" type="directional">
+      <direction>0.5 0.1 -0.9</direction>
+      <pose>0 0 10 0 0 0</pose>
+      <specular>0.2 0.2 0.2 1</specular>
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <attenuation>
+        <range>1000</range>
+        <quadratic>0.001</quadratic>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+      </attenuation>
+    </light>
+    <model name="walls">
     <static>true</static>
-    <link name="1_link">
-      <collision name="1_col">
+      <link name="1_link">
+        <collision name="1_col">
         <geometry>
           <mesh>
-            <uri>model://robot-lab/shape/heightmap.stl</uri>
+          <uri>model://robot-lab/shape/heightmap.stl</uri>
           </mesh>
         </geometry>
-      </collision>
-      <visual name="1_vis">
+        </collision>
+        <visual name="1_vis">
         <geometry>
           <mesh>
-            <uri>model://robot-lab/shape/heightmap.stl</uri>
+          <uri>model://robot-lab/shape/heightmap.stl</uri>
           </mesh>
         </geometry>
-      </visual>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+      </link>
       <pose>0 0 0 0 0 0</pose>
-    </link>
-  </model>
+    </model>
+    <model name="floor">
+      <link name="1_link">
+        <collision name="1_col">
+          <geometry>
+            <box>
+              <size>200 200 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="1_vis">
+          <geometry>
+            <box>
+              <size>200 200 0.02</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 -0.01 0 0 0</pose>
+      </link>
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+    <physics type="ode">
+      <real_time_update_rate>333.0</real_time_update_rate>
+      <max_step_size>0.003</max_step_size>
+      <ode>
+        <constraints>
+          <cfm>0.0001</cfm>
+        </constraints>
+        <solver>
+          <type>quick</type>
+          <iters>100</iters>
+        </solver>
+      </ode>
+    </physics>
+  </world>
 </sdf>
