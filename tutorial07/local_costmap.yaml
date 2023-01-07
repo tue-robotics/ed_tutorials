@@ -1,7 +1,7 @@
 # SETUP
 
 global_frame: /map
-robot_base_frame: /amigo/base_link
+robot_base_frame: base_footprint
 rolling_window: true
 track_unknown_space: false
 resolution: 0.025
