@@ -1,6 +1,6 @@
 # SETUP
 
-global_frame: /map
+global_frame: map
 robot_base_frame: base_footprint
 rolling_window: true
 track_unknown_space: false
@@ -9,8 +9,8 @@ width: 5.0
 height: 5.0
 robot_radius: 0.35
 
-update_frequency: 0.0
-publish_frequency: 0.0
+update_frequency: 1.0
+publish_frequency: 1.0
 
 always_send_full_costmap: true
 
@@ -18,7 +18,7 @@ always_send_full_costmap: true
 
 plugins:
     - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
-    - {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
+   # - {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
     - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
 
 
