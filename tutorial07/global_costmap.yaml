@@ -1,6 +1,6 @@
 # SETUP
 
-global_frame: /map
+global_frame: map
 robot_base_frame: /amigo/base_link
 rolling_window: false
 track_unknown_space: false
@@ -16,7 +16,7 @@ always_send_full_costmap: true
 plugins:
     # Obstacles
     - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
-    - {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
+    #- {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
     - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
 
 # Ed World model layer
