@@ -3,63 +3,66 @@ world:
   pose: { x: 0, y: 0, z: 0 }
 
 plugins:
-- name: gui_server
-  type: ed_gui_server/gui_server
-- name: localization
-  type: ed_localization/localization
-  parameters:
-    robot_name: amigo
-    initial_pose_topic: /amigo/initialpose
-    particle_filter:
-        min_particles: 100
-        max_particles: 750
-        kld_err: 0.02
-        kld_z: 0.98
-        recovery_alpha_slow: 0 #0.001
-        recovery_alpha_fast: 0 #0.1
-        cell_size_x: 0.5
-        cell_size_y: 0.5
-        cell_size_theta: 0.1745
-    initial_pose:
-        x: 0.586 #$(env ROBOT_INIT_X)
-        y: 4.259 #$(env ROBOT_INIT_Y)
-        rz: 0 #$(env ROBOT_INIT_PHI)
-    laser_model:
-        topic: /amigo/base_laser/scan
-        num_beams: 100
-        z_hit: 0.95
-        sigma_hit: 0.2
-        z_short: 0.1
-        z_max: 0.05
-        z_rand: 0.05
-        lambda_short: 0.1
-        range_max: 10
-        min_particle_distance: 0.01
-        min_particle_rotation_distance: 0.02
-    odom_model:
-        map_frame: map
-        odom_frame: /amigo/odom
-        base_link_frame: /amigo/base_link
-        alpha1: 0.05   # rot -> trans + strafe
-        alpha2: 0.5    # trans -> rot
-        alpha3: 0.5    # trans -> trans
-        alpha4: 0.5    # rot -> rot
-        alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
+  - name: gui_server
+    type: ed_gui_server/gui_server
+  - name: localization
+    type: ed_localization/localization
+    parameters:
+        robot_name: amigo
+        initial_pose_topic: /amigo/initialpose
+        resample_interval: 2
+        update_min_d: 0.05
+        update_min_a: 0.05
+        particle_filter:
+            min_particles: 100
+            max_particles: 750
+            kld_err: 0.02
+            kld_z: 0.98
+            recovery_alpha_slow: 0 #0.001
+            recovery_alpha_fast: 0 #0.1
+            cell_size_x: 0.5
+            cell_size_y: 0.5
+            cell_size_theta: 0.1745
+        initial_pose:
+            x: 0 #$(env ROBOT_INIT_X)
+            y: 0 #$(env ROBOT_INIT_Y)
+            rz: 0 #$(env ROBOT_INIT_PHI)
+        laser_model:
+            topic: /amigo/base_laser/scan
+            num_beams: 100
+            z_hit: 0.95
+            sigma_hit: 0.2
+            z_short: 0.1
+            z_max: 0.05
+            z_rand: 0.05
+            lambda_short: 0.1
+            range_max: 10
+            min_particle_distance: 0.01
+            min_particle_rotation_distance: 0.02
+        odom_model:
+            map_frame: map
+            odom_frame: /amigo/odom
+            base_link_frame: /amigo/base_link
+            alpha1: 0.05   # rot -> trans + strafe
+            alpha2: 0.5    # trans -> rot
+            alpha3: 0.5    # trans -> trans
+            alpha4: 0.5    # rot -> rot
+            alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
 
-- name: entity_clearer
-  type: ed_sensor_integration/clearer
-  enabled: 1
-  parameters:
-      entity_timeout: 1.0
+  - name: entity_clearer
+    type: ed_sensor_integration/clearer
+    enabled: 1
+    parameters:
+        entity_timeout: 1.0
 
-- name: laser_integration
-  type: ed_sensor_integration/laser
-  frequency: 40
-  parameters:
-      laser_topic: /amigo/torso_laser/scan
-      min_segment_size_pixels: 10
-      world_association_distance: 0.4
-      segment_depth_threshold: 0.2
-      min_cluster_size: 0.2
-      max_cluster_size: 1.0
-      max_gap_size: 10
+  - name: laser_integration
+    type: ed_sensor_integration/laser
+    frequency: 40
+    parameters:
+        laser_topic: /amigo/torso_laser/scan
+        min_segment_size_pixels: 10
+        world_association_distance: 0.4
+        segment_depth_threshold: 0.2
+        min_cluster_size: 0.2
+        max_cluster_size: 1.0
+        max_gap_size: 10
