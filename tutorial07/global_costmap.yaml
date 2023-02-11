@@ -15,8 +15,8 @@ always_send_full_costmap: true
 
 plugins:
   # Obstacles
-  - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
-  - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
+  - {name: ed_occupancy_grid, type: "costmap_2d::StaticLayer"}
+  - {name: configuration_space, type: "costmap_2d::InflationLayer"}
 
 # Ed World model layer
 ed_occupancy_grid:
