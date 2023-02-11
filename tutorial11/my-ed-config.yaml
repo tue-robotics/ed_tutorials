@@ -24,8 +24,8 @@ plugins:
         cell_size_y: 0.5
         cell_size_theta: 0.1745
       initial_pose:
-        x: 0 #$(env ROBOT_INIT_X)
-        y: 0 #$(env ROBOT_INIT_Y)
+        x: 0.586 #$(env ROBOT_INIT_X)
+        y: 4.259 #$(env ROBOT_INIT_Y)
         rz: 0 #$(env ROBOT_INIT_PHI)
       laser_model:
         topic: /amigo/base_laser/scan
