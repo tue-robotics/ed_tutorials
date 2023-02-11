@@ -1,16 +1,16 @@
 composition:
-    - type: "robot-lab/walls"
-      id: "walls"
-      pose:
-          x: 0
-          y: 0
-          z: 0
-    - type: "cabinet"
-      id: "cabinet"
-      pose:
-          x: 3.30
-          y: 4.35
-          z: 0
-          X: 0
-          Y: 0
-          Z: 0
+  - type: "robot-lab/walls"
+    id: "walls"
+    pose:
+      x: 0
+      y: 0
+      z: 0
+  - type: "cabinet"
+    id: "cabinet"
+    pose:
+      x: 3.30
+      y: 4.35
+      z: 0
+      X: 0
+      Y: 0
+      Z: 0
