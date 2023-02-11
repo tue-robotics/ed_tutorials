@@ -1,33 +1,33 @@
 shape:
-    compound:
-      - box:
-            # Left side
-            pose: {x: 0, y: -0.37, z: 0.395}
-            size: {x: 0.395, y: 0.05, z: 0.79}
-      - box:
-            # Right side
-            pose: {x: 0, y: 0.37, z: 0.395}
-            size: {x: 0.395, y: 0.05, z: 0.79}
-      - box:
-            # Top
-            pose: {x: 0, y: 0, z: 0.765}
-            size: {x: 0.395, y: 0.69, z: 0.05}
-      - box:
-            # Bottom
-            pose: {x: 0, y: 0, z: 0.025}
-            size: {x: 0.395, y: 0.69, z: 0.05}
-      - box:
-            # Shelf
-            pose: {x: 0, y: 0, z: 0.395}
-            size: {x: 0.395, y: 0.69, z: 0.02}
-      - box:
-            # Shelf
-            pose: {x: 0, y: 0, z: 0.395}
-            size: {x: 0.395, y: 0.02, z: 0.69}
+  compound:
+    - box:
+        # Left side
+        pose: {x: 0, y: -0.37, z: 0.395}
+        size: {x: 0.395, y: 0.05, z: 0.79}
+    - box:
+        # Right side
+        pose: {x: 0, y: 0.37, z: 0.395}
+        size: {x: 0.395, y: 0.05, z: 0.79}
+    - box:
+        # Top
+        pose: {x: 0, y: 0, z: 0.765}
+        size: {x: 0.395, y: 0.69, z: 0.05}
+    - box:
+        # Bottom
+        pose: {x: 0, y: 0, z: 0.025}
+        size: {x: 0.395, y: 0.69, z: 0.05}
+    - box:
+        # Shelf
+        pose: {x: 0, y: 0, z: 0.395}
+        size: {x: 0.395, y: 0.69, z: 0.02}
+    - box:
+        # Shelf
+        pose: {x: 0, y: 0, z: 0.395}
+        size: {x: 0.395, y: 0.02, z: 0.69}
 color:
-    red: 0.1
-    green: 0.1
-    blue: 0.1
+  red: 0.1
+  green: 0.1
+  blue: 0.1
 
 areas:
   - name: near
@@ -35,10 +35,10 @@ areas:
   - name: in_front_of
     shape:
       - box:
-            min: { x: -0.7, y: -0.395, z: 0 }
-            max: { x:  0,   y:  0.395, z: 0 }
+          min: {x: -0.7, y: -0.395, z: 0}
+          max: {x:  0,   y:  0.395, z: 0}
   - name: on_top_of
     shape:
       - box:
-            min: { x: -0.17, y: -0.37, z: 0.845 }
-            max: { x:  0.17, y:  0.37, z: 1.2 }
+          min: {x: -0.17, y: -0.37, z: 0.845}
+          max: {x:  0.17, y:  0.37, z: 1.2}
