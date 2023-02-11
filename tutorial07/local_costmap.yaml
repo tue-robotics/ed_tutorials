@@ -17,24 +17,22 @@ always_send_full_costmap: true
 # LAYER SETUP
 
 plugins:
-    - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
-    #- {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
-    - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
+  - {name: ed_occupancy_grid, type: "costmap_2d::StaticLayer"}
+  - {name: configuration_space, type: "costmap_2d::InflationLayer"}
 
 
 # LAYER CONFIGURATION
-
 ed_occupancy_grid:
-    map_topic: /ed/navigation/map
-    track_unknown_space: true
-    use_maximum: true
-    lethal_cost_threshold: 99
+  map_topic: /ed/navigation/map
+  track_unknown_space: true
+  use_maximum: true
+  lethal_cost_threshold: 99
 
 # Workspace to configuration space
 configuration_space:
-    use_footprint: false
-    target_cell_value: 254
-    dilation_cell_value: 253
-    dilation_radius: 0.35 # inscribed radius
-    inflation_radius: 1.0 # optimization
-    cost_scaling_factor: 5.0
+  use_footprint: false
+  target_cell_value: 254
+  dilation_cell_value: 253
+  dilation_radius: 0.35 # inscribed radius
+  inflation_radius: 1.0 # optimization
+  cost_scaling_factor: 5.0
