@@ -59,3 +59,4 @@ plugins:
         frame_id: map
         min_z: 0.025
         max_z: 1.65
+        default_offset: 0.7
