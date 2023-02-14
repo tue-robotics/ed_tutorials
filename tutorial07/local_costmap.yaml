@@ -9,8 +9,8 @@ width: 5.0
 height: 5.0
 robot_radius: 0.35
 
-update_frequency: 1.0
-publish_frequency: 1.0
+update_frequency: 0.0
+publish_frequency: 0.0
 
 always_send_full_costmap: true
 
