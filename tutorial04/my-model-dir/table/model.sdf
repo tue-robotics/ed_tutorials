@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="table">
+    <static>true</static>
+    <link name="1_link">
+      <collision name="1_col">
+        <geometry>
+          <box>
+            <size>1.2 0.8 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="1_vis">
+        <geometry>
+          <box>
+            <size>1.2 0.8 0.02</size>
+          </box>
+        </geometry>
+      </visual>
+      <pose>0 0 0.75 0 0 0</pose>
+    </link>
+    <link name="2_link">
+      <collision name="2_col">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="2_vis">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </visual>
+      <pose>-0.55 -0.35 0.37 0 0 0</pose>
+    </link>
+    <link name="3_link">
+      <collision name="3_col">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="3_vis">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </visual>
+      <pose>0.55 -0.35 0.37 0 0 0</pose>
+    </link>
+    <link name="4_link">
+      <collision name="4_col">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="4_vis">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </visual>
+      <pose>-0.55 0.35 0.37 0 0 0</pose>
+    </link>
+    <link name="5_link">
+      <collision name="5_col">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="5_vis">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.74</size>
+          </box>
+        </geometry>
+      </visual>
+      <pose>0.55 0.35 0.37 0 0 0</pose>
+    </link>
+  </model>
+</sdf>

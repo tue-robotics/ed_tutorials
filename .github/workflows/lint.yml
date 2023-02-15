@@ -1,0 +1,18 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  yaml_lint:
+    name: YAML Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install YamlLint
+        run: pip install --upgrade yamllint
+      - name: YamlLint
+        run: bash -c 'find ./ -iname '*.yaml' -or -iname '*.yml' | xargs yamllint'

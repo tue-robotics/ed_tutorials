@@ -1,14 +1,19 @@
-world_name: robot-lab
+world:
+  - type: robot-lab
+    pose: {x: 0, y: 0, z: 0}
 
 plugins:
-- name: gui_server
-  type: ed_gui_server/gui_server
-- name: localization
-  type: ed_localization/localization
-  parameters:
-    robot_name: amigo
-    initial_pose_topic: /amigo/initialpose
-    particle_filter:
+  - name: gui_server
+    type: ed_gui_server/gui_server
+  - name: localization
+    type: ed_localization/localization
+    parameters:
+      robot_name: amigo
+      initial_pose_topic: /amigo/initialpose
+      resample_interval: 2
+      update_min_d: 0.05
+      update_min_a: 0.05
+      particle_filter:
         min_particles: 100
         max_particles: 750
         kld_err: 0.02
@@ -18,11 +23,11 @@ plugins:
         cell_size_x: 0.5
         cell_size_y: 0.5
         cell_size_theta: 0.1745
-    initial_pose:
+      initial_pose:
         x: 0.586 #$(env ROBOT_INIT_X)
         y: 4.259 #$(env ROBOT_INIT_Y)
         rz: 0 #$(env ROBOT_INIT_PHI)
-    laser_model:
+      laser_model:
         topic: /amigo/base_laser/scan
         num_beams: 100
         z_hit: 0.95
@@ -34,7 +39,7 @@ plugins:
         range_max: 10
         min_particle_distance: 0.01
         min_particle_rotation_distance: 0.02
-    odom_model:
+      odom_model:
         map_frame: map
         odom_frame: /amigo/odom
         base_link_frame: /amigo/base_link
@@ -42,10 +47,9 @@ plugins:
         alpha2: 0.5    # trans -> rot
         alpha3: 0.5    # trans -> trans
         alpha4: 0.5    # rot -> rot
-        alpha5: 0.5    # trans -> strafeb: libed_gui_server_plugin.so
-
-- name: rgbd_integration
-  type: ed_sensor_integration/rgbd
-  enabled: 1
-  parameters:
+        alpha5: 0.5    # trans -> strafe
+  - name: rgbd_integration
+    type: ed_sensor_integration/rgbd
+    enabled: 1
+    parameters:
       topic: /amigo/top_kinect/rgbd

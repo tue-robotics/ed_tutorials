@@ -5,7 +5,7 @@ world:
         image: $(file my-walls.pgm)
         height: 2
         resolution: 0.025
-        pose: { x: -10.0, y: -10.0, z: 0 }
+        pose: {x: -10.0, y: -10.0, z: 0}
 
 plugins:
   - name: gui_server

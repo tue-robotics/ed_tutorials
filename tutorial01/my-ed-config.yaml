@@ -1,14 +1,14 @@
 world:
-- id: block1
-  pose: { x: 2, y: 0, z: 0.5 }
-  shape:
-    box:
-      size: { x: 0.5, y: 0.5, z: 1 }
-- id: block2
-  pose: { x: 3, y: 2, z: 0.75 }
-  shape:
-    box:
-      size: { x: 0.5, y: 0.5, z: 1.5 }
+  - id: block1
+    pose: {x: 2, y: 0, z: 0.5}
+    shape:
+      box:
+        size: {x: 0.5, y: 0.5, z: 1}
+  - id: block2
+    pose: {x: 3, y: 2, z: 0.75}
+    shape:
+      box:
+        size: {x: 0.5, y: 0.5, z: 1.5}
 
 plugins:
   - name: gui_server

@@ -19,7 +19,7 @@ mkdir my-model-dir
 You have to let ED know where it will be able to find the models. You can do this by setting the ED_MODEL_PATH variable.
 
 ```bash
-export ED_MODEL_PATH=`pwd`/my-model-dir
+source ../setup_env.bash  # This needs to be done from the tutorial specific folder
 ```
 
 You can specify multiple paths by separating them with colons (':').

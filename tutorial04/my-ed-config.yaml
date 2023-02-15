@@ -1,6 +1,6 @@
 world:
-- type: robot-lab
-  pose: { x: 0, y: 0, z: 0 }
+  - type: robot-lab
+    pose: {x: 0, y: 0, z: 0}
 
 plugins:
   - name: gui_server

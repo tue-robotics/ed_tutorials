@@ -1,12 +1,12 @@
 type: walls
 color:
-    red: 0.1
-    green: 0.1
-    blue: 0.9
+  red: 0.1
+  green: 0.1
+  blue: 0.9
 shape:
-    path: shape/heightmap.pgm
-    blockheight: 2.0
-    resolution: 0.025000
-    origin_x: -13.800000
-    origin_y: -14.200000
-    origin_z:  0.000000
+  path: shape/heightmap.pgm
+  blockheight: 2.0
+  resolution: 0.025000
+  origin_x: -13.800000
+  origin_y: -14.200000
+  origin_z: 0.000000

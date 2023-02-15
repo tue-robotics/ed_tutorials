@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="robot-lab">
+    <include>
+      <name>walls</name>
+      <uri>model://robot-lab/walls</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>cabinet</name>
+      <uri>model://cabinet</uri>
+      <pose>3.3 4.35 0 0 0 0</pose>
+    </include>
+    <model name="floor">
+      <link name="1_link">
+        <collision name="1_col">
+          <geometry>
+            <box>
+              <size>200 200 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="1_vis">
+          <geometry>
+            <box>
+              <size>200 200 0.02</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 -0.01 0 0 0</pose>
+      </link>
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>0.5 0.1 -0.9</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+    <physics type="ode">
+      <real_time_update_rate>333.0</real_time_update_rate>
+      <max_step_size>0.003</max_step_size>
+      <ode>
+        <solver type="quick">
+          <iters>100</iters>
+        </solver>
+        <constraints>
+          <cfm>0.0001</cfm>
+        </constraints>
+      </ode>
+    </physics>
+  </world>
+</sdf>
